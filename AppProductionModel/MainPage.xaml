@@ -1,0 +1,106 @@
+﻿<Page
+    x:Class="AppProductionModel.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AppProductionModel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    NavigationCacheMode="Enabled"
+    mc:Ignorable="d"
+    Style="{StaticResource PageStyle}">
+    <Page.TopAppBar>
+        <CommandBar>
+            <AppBarButton x:Name="LoaddataBase" Click="LoaddataBase_Click" Label="Загрузить базу правил" Icon="OpenFile"/>
+            <AppBarButton x:Name="SaveDataBase" Click="SaveDataBase_Click" Label="Сохранить базу правил" Icon="SaveLocal"/>
+        </CommandBar>
+    </Page.TopAppBar>
+    <Grid Margin="10" Style="{StaticResource GlobalGrid}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.4*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Style="{StaticResource GlobalGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Frame Style="{StaticResource FramePanel}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="База правил" Style="{StaticResource TitleTextBlock}"/>
+                    <ScrollViewer Grid.Row="1">
+                        <ListView x:Name="ViewRules" ItemsSource="{Binding Rules}"
+                              SelectionMode="None">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="HorizontalContentAlignment"  Value="Stretch"></Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame Style="{StaticResource SelectFrame}"
+                                       Padding="5"
+                                       Margin="3">
+                                        <Grid Style="{StaticResource GlobalGrid}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Text="{Binding}"
+                                                   VerticalAlignment="Center"
+                                                   TextWrapping="WrapWholeWords"
+                                                   Style="{StaticResource GlobalTextBlock}"/>
+                                            <AppBarButton x:Name="DeleteRule" Click="DeleteRule_Click" Icon="Delete" Grid.Column="1" Style="{StaticResource GlobalAppBarButton}"/>
+                                            <AppBarButton x:Name="ShowRule" Click="ShowRule_Click" Icon="OpenPane" Grid.Column="2" Style="{StaticResource GlobalAppBarButton}"/>
+                                        </Grid>
+                                    </Frame>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ScrollViewer>
+                </Grid>
+            </Frame>
+            <Frame Grid.Row="1" Style="{StaticResource FramePanel}">
+                <Grid Style="{StaticResource GlobalGrid}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="RuleCondition" PlaceholderText="Если" Style="{StaticResource GlobalTextBox}"/>
+                    <TextBox x:Name="RuleConsequence" PlaceholderText="То" Grid.Column="1" Style="{StaticResource GlobalTextBox}"/>
+                    <Button x:Name="AddRule" Click="AddRule_Click" Content="Добавить" Grid.Column="2" Style="{StaticResource GlobalButton}"/>
+                </Grid>
+            </Frame>
+        </Grid>
+        <Grid Grid.Column="1" Style="{StaticResource GlobalGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Frame Style="{StaticResource FramePanel}">
+                <Grid Style="{StaticResource GlobalGrid}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="SerchText" PlaceholderText="Введите признаки через запятую" Style="{StaticResource GlobalTextBox}"/>
+                    <Button x:Name="SearchButton" Click="SearchButton_Click" Content="Выполнить поиск" Grid.Column="1" Style="{StaticResource GlobalButton}"/>
+                </Grid>
+            </Frame>
+            <Frame Grid.Row="1" Style="{StaticResource FramePanel}" Padding="0">
+                <ScrollViewer>
+                    <StackPanel x:Name="Console" Spacing="10" Margin="20">
+                        
+                    </StackPanel>
+                </ScrollViewer>
+            </Frame>
+            <Button x:Name="ClearConsole" Click="ClearConsole_Click" Content="Очистить консоль" HorizontalAlignment="Stretch" Grid.Row="2" Style="{StaticResource GlobalButton}"/>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,56 @@
+﻿<Application
+    x:Class="AppProductionModel.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AppProductionModel"
+    RequestedTheme="Dark">
+    <Application.Resources>
+        <CornerRadius x:Key="GlobalCornerRadius">8</CornerRadius>
+        <Thickness x:Key="GlobalBorderThickness">2.3</Thickness>
+        <Color x:Key="GlobalHighlightingColor">#45609a</Color>
+        <Style x:Key="GlobalFrame" TargetType="Frame">
+            <Setter Property="CornerRadius" Value="{StaticResource GlobalCornerRadius}"/>
+        </Style>
+        <Style x:Key="FramePanel" TargetType="Frame" BasedOn="{StaticResource GlobalFrame}">
+            <Setter Property="BorderBrush" Value="{StaticResource GlobalHighlightingColor}"/>
+            <Setter Property="BorderThickness" Value="{StaticResource GlobalBorderThickness}"/>
+            <Setter Property="Background" Value="#19FFFFFF"/>
+            <Setter Property="Padding" Value="10"/>
+        </Style>
+        <Style x:Key="PageStyle" TargetType="Page">
+            <Setter Property="Background" Value="#040005"/>
+        </Style>
+        <Style x:Key="GlobalTextBlock" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+        <Style x:Key="TitleTextBlock" TargetType="TextBlock" BasedOn="{StaticResource GlobalTextBlock}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+        <Style x:Key="GlobalGrid" TargetType="Grid">
+            <Setter Property="RowSpacing" Value="5"/>
+            <Setter Property="ColumnSpacing" Value="5"/>
+        </Style>
+        <Style x:Key="GlobalButton" TargetType="Button">
+            <Setter Property="CornerRadius" Value="{StaticResource GlobalCornerRadius}"/>
+        </Style>
+        <Style x:Key="GlobalTextBox" TargetType="TextBox">
+            <Setter Property="CornerRadius" Value="{StaticResource GlobalCornerRadius}"/>
+        </Style>
+        <Style x:Key="SelectFrame" TargetType="Frame" BasedOn="{StaticResource GlobalFrame}">
+            <Setter Property="Background" Value="#4f4f4f"/>
+        </Style>
+        <Style x:Key="GlobalAppBarButton" TargetType="AppBarButton">
+            <Setter Property="CornerRadius" Value="{StaticResource GlobalCornerRadius}"/>
+            <Setter Property="MaxHeight" Value="40"/>
+            <Setter Property="MaxWidth" Value="40"/>
+        </Style>
+        <Style x:Key="ContentDialogStyle" TargetType="ContentControl">
+            <Setter Property="CornerRadius" Value="{StaticResource GlobalCornerRadius}"/>
+        </Style>
+    </Application.Resources>
+
+</Application>
