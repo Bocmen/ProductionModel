@@ -7,6 +7,8 @@ ____
 
 Предметная область: Оценка стоимости разработки Web-страниц.
 
+Использовалась Visual Studio 2022
+
 ![Интерфейс](https://github.com/Bocmen/ProductionModel/blob/main/Demo/Visual/MyRulesConfig.gif?raw=true)
 
 ____
