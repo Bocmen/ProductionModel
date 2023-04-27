@@ -1,5 +1,5 @@
 <div id="header" align="center">
-  <img src=".\Icon\Icon.png" width="100"/>
+  <img src="https://github.com/Bocmen/ProductionModel/blob/main/Icon/Icon.png?raw=true" width="100"/>
   <h1>AppProductionModel - Продукционная модель представления знаний</h1>
 </div>
 
